@@ -1,6 +1,10 @@
+from functools import wraps
+
+
 def timer(func):
     import time
 
+    @wraps(func)
     def mesure(*args, **kwargs):
         t1 = time.time()
         result = func(*args, **kwargs)
